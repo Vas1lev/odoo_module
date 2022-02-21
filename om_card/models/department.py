@@ -6,6 +6,6 @@ class Department(models.Model):
 
     name = fields.Char(string="DEPARTMENT", required=True)
     info = fields.One2many('card.info', 'department', string='INFO')
-    manager = fields.Many2one('card.info', domain="[('department.name', '=', name)]")
+    manager = fields.Many2one('card.info', domain="[('department.id', '=', id)]")
 
 
