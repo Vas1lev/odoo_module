@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_card_info,access.card.info,model_card_info,,1,1,1,1
+access_card_department,access.card.department,model_card_department,,1,1,1,1
+access_card_description,access.card.description,model_card_description,,1,1,1,1
+access_dep_view_report,access.dep.view.report,model_dep_view_report,,1,1,1,1

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <template id="report_info">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+
+                <img t-if="doc.image" t-att-src="image_data_uri(doc.image)"
+                     class="float-left" alt="image" height="240px" width="240px"/>
+                <h3>FIRST NAME: <t t-esc="doc.first_name"/></h3>
+                <h3>LAST NAME: <t t-esc="doc.last_name"/></h3>
+                <h3>AGE: <t t-esc="doc.age"/></h3>
+                <h3>CITIZENSHIP: <t t-esc="doc.citizenship"/></h3>
+                <h3>GEN: <t t-esc="doc.gender"/></h3>
+                <h3>SIGNATURE: <t t-esc="doc.signature"/></h3>
+                <h3>ISSUING AUTHORITY: <t t-esc="doc.issuing_authority"/></h3>
+                <h3>DATE OF BIRTH: <t t-esc="doc.date_of_birth"/></h3>
+                <h3>DATE OF EXPIRY: <t t-esc="doc.date_of_expiry"/></h3>
+                <h3>PERSONAL No: <t t-esc="doc.personal_no"/></h3>
+                <h3>PLACE OF BIRTH: <t t-esc="doc.place_of_birth"/></h3>
+                <h3>DATE OF ISSUE: <t t-esc="doc.date_of_issue"/></h3>
+                <h3>CARD No: <t t-esc="doc.card_no"/></h3>
+
+                <h3>DEPARTMENT: <t t-esc="doc.department.name"/></h3>
+                DESCRIPTION:
+                <t t-foreach="doc.description" t-as="desc">
+                    <t t-esc="desc.name"/>
+
+                </t>
+
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <report
+            id="report_info_card"
+            string="PDF"
+            model="card.info"
+            report_type="qweb-pdf"
+            name="om_card.report_info"
+            file="om_card.report_info"/>
+
+    <report
+            id="report_info_card_xls"
+            string="EXCEL"
+            model="card.info"
+            report_type="xlsx"
+            name="om_card.report_info_xls"
+            file="om_card.report_info_xls"/>
+
+</odoo>

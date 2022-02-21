@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_info_kanban" model="ir.ui.view">
+        <field name="name">card.info.kanban</field>
+        <field name="model">card.info</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li><field name="last_name"/>, <field name="first_name"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_info_tree" model="ir.ui.view">
+        <field name="name">card.info.tree</field>
+        <field name="model">card.info</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="department"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_info_form" model="ir.ui.view">
+        <field name="name">card.info.form</field>
+        <field name="model">card.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="signature"/>
+                            <field name="issuing_authority"/>
+                            <field name="citizenship"/>
+                            <field name="personal_no"/>
+                            <field name="date_of_birth"/>
+                            <field name="date_of_expiry"/>
+                            <field name="place_of_birth"/>
+                            <field name="date_of_issue"/>
+                            <field name="card_no"/>
+                            <field name="department"/>
+                            <field name="description" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_info_search" model="ir.ui.view">
+        <field name="name">card.info.search</field>
+        <field name="model">card.info</field>
+        <field name="arch" type="xml">
+            <search string="Infos">
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <separator/>
+                <filter string="Male" name="male" domain="[('gender', '=', 'M')]"/>
+                <filter string="Female" name="female" domain="[('gender', '=', 'FM')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                    <filter string="First Name" name="first_name" context="{'group_by':'first_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="info_action" model="ir.actions.act_window">
+        <field name="name">Infos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">card.info</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                create your first Info!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="card_root"
+              name="Card"
+              sequence="10"/>
+
+    <menuitem id="card_info"
+              name="Infos"
+              parent="card_root"
+              action="info_action"
+              sequence="10"/>
+
+</odoo>
