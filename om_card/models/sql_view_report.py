@@ -5,7 +5,6 @@ from odoo import models, fields, api, tools
 
 class SqlViewReport(models.AbstractModel):
     _name = 'dep.view.report'
-    _auto = False
 
     dep_name = fields.Char(string="DEPARTMENT")
     amount = fields.Integer(string="NUMBER OF STAFF")
